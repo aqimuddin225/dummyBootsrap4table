@@ -52,49 +52,66 @@ $dbh = null;
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="#aboutus">About Us</a>
           </li>
         </ul>
         <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Log In</a>
       </div>
     </nav>
-  <div class="container mt-3">
-    <div class="row">
-      <h1>Tabel Data Sampah TPA</h1>
+  <div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="ban4.jpg" class="d-block w-100" height="700" alt="...">
+            <div class="container mt-3">
+              <div class="row">
+                <h1>Tabel Data Sampah TPA</h1>
+              </div>
+              <div class="row">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Tanggal</th>
+                      <th scope="col">Sampah Masuk (Kg)</th>
+                      <th scope="col">Sampah Organik (Kg)</th>
+                      <th scope="col">Sampah Anorganik (Kg)</th>
+                      <th scope="col">Residu (Kg)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                      $i = 1;
+                      foreach ($tbsampah as $data){
+                        ?>
+                        <tr>
+                          <th scope="row"><?=$i?></th>
+                          <td><?=$data['tanggal_masuk']?></td>
+                          <td><?=$data['massa_total']?></td>
+                          <td><?=$data['organik']?></td>
+                          <td><?=$data['anorganik']?></td>
+                          <td><?=$data['residu']?></td>
+                        </tr>
+                    <?php
+                      $i++;}
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+        </div>
     </div>
-    <div class="row">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">Sampah Masuk (Kg)</th>
-            <th scope="col">Sampah Organik (Kg)</th>
-            <th scope="col">Sampah Anorganik (Kg)</th>
-            <th scope="col">Residu (Kg)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php 
-            $i = 1;
-            foreach ($tbsampah as $data){
-              ?>
-              <tr>
-                <th scope="row"><?=$i?></th>
-                <td><?=$data['tanggal_masuk']?></td>
-                <td><?=$data['massa_total']?></td>
-                <td><?=$data['organik']?></td>
-                <td><?=$data['anorganik']?></td>
-                <td><?=$data['residu']?></td>
-              </tr>
-          <?php
-            $i++;}
-          ?>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="container mt-3">
+    <div class="carousel-item">
+      <img src="ban3.jpg" class="d-block w-100" height="700" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="container mt-3">
     <div class="row">
       <h1>Tabel Data Komposter</h1>
     </div>
@@ -129,7 +146,14 @@ $dbh = null;
       </table>
     </div>
   </div>
-  <div class="container mt-3">
+    </div>
+    <div class="carousel-item">
+      <img src="ban2.jpg" class="d-block w-100" height="700" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+      <div class="container mt-3">
     <div class="row">
       <h1>Tabel Data Bank Sampah</h1>
     </div>
@@ -164,7 +188,56 @@ $dbh = null;
       </table>
     </div>
   </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  </div>
 
+<footer class="bg-light">
+  <div class="container text-center text-md-left mt-5">
+    <div class="row">
+      <div id="aboutus" class="col-md-3 mx-auto m-4">
+        <h6 class="text-uppercase font-weight-bold">About Us</h6>
+        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width:125px; height: 2px;">
+        <p class="mt-2">
+        Aplikasi Pemantau Pemanfaatan Sampah dalam Sistem Informasi Eco-Green Kampus UIN
+Malang.</p>
+      </div>
+      <div class="col-md-3 mx-auto m-4">
+        <h6 class="text-uppercase font-weight-bold">Tabel Data</h6>
+        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width:125px; height: 2px;">
+        <ul class="list-unstyled">
+        <li class="my-2">Tabel Data Sampah TPA</li>
+        <li class="my-2">Tabel Komposter</li>
+        <li class="my-2">Tabel Bank Sampah Daur Ulang</li>
+        </ul>
+      </div>
+      <div class="col-md-3 mx-auto m-4">
+        <h6 class="text-uppercase font-weight-bold">Created By :</h6>
+        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width:125px; height: 2px;">
+        <ul class="list-unstyled">
+        <li class="my-2">Muhammad Ibrohim Aqimuddin</li>
+        <li class="my-2">Qonita Izzati</li>
+        <li class="my-2">Rodhiyatus Sa’adah</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">
+    <p>&copy; Copyright
+      <a href="#">Project Kelompok 4</a>
+    </p>
+  </div>
+</footer>
+  
 
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -185,7 +258,7 @@ $dbh = null;
           <input type="text" class="form-control" id="password" placeholder="Password">
         </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Login</button>
+        <a class="btn btn-primary" href="admin.php" role="button">Login</a>
       </form>
       </div>
       <div class="modal-footer">
